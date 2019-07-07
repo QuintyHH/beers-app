@@ -1,0 +1,1 @@
+export { default } from './beer-list.container'
