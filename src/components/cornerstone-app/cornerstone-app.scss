@@ -54,6 +54,7 @@ div {
   color: black;
   font-size: 20px;
   text-decoration: none;
+  text-align: left;
   
   &:hover {
     color: #E09F15;
@@ -64,6 +65,7 @@ div {
 .beer-name {
   padding-left: 20px;
   color: #E09F15;
+  text-align: left;
 }
 
 img {
