@@ -8,7 +8,7 @@ const BeerList = () => {
 
   const [beerBase, setBeerBase] = useState("name")
   const [beerAPI, setBeerAPI] = useState([])
-  const [selection, setBeerSelection] = useState(["name", "abv"])
+  const selection = ["name", "abv"]
 
   useEffect(() => {
     axios
@@ -23,14 +23,8 @@ const BeerList = () => {
     sortBeers(beerAPI)
   }, [beerBase])
 
-  const sortBeers = (beerAPI) => {
-    if (beerBase === selection[0]) {
-      setBeerAPI(beerAPI.sort( (a,b) => a.name.localeCompare(b.name)))
-    } 
-    else if (beerBase === selection[1]) {
-      setBeerAPI(beerAPI.sort( (a,b) => a.abv-b.abv))
-    }
-  }
+  const sortBeers = (beerAPI) => beerBase === selection[0] ? setBeerAPI(beerAPI.sort( (a,b) => a.name.localeCompare(b.name))) : setBeerAPI(beerAPI.sort( (a,b) => a.abv-b.abv))
+ 
 
   const handleSelection = (e) => {
     const { value } = e.target
