@@ -35,7 +35,7 @@ const BeerList = () => {
           <select
             defaultValue={beerBase}
             onChange={e => setBeerBase(e.target.value)}
-            style={{ border:"1px solid black", padding: "2.5px"}}
+            style={{ border:"2px solid black", padding: "1px"}}
           >
             {selection.map(select =>
               <option 
@@ -49,11 +49,11 @@ const BeerList = () => {
       <div className="grid-template">
         {beerAPI.map((beer) =>
           <StyledBeer key={beer.name}>
-            <h3 style={{ margin: "10px 0 0 0"}}>{beer.name}</h3>
-            <h5 style={{ fontStyle: "oblique", margin: "5px 0"}}>ABV: {beer.abv}</h5>
+            <h3 style={{ marginTop: "50px"}}>{beer.name}</h3>
+            <h5 style={{ marginTop: "3px"}}>ABV: {beer.abv}</h5>
               <img src={beer.image_url} />
               <div >
-              <Link className="more-details"  to="/beer-details" onClick={()=>{
+              <Link className="more-details" to="/beer-details" onClick={()=>{
                   window.localStorage.setItem("beer", JSON.stringify(beer))
                 }}>
                   More details
