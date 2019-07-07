@@ -23,14 +23,10 @@ const BeerList = () => {
     sortBeers(beerAPI)
   }, [beerBase])
 
-  const sortBeers = (beerAPI) => beerBase === selection[0] ? setBeerAPI(beerAPI.sort( (a,b) => a.name.localeCompare(b.name))) : setBeerAPI(beerAPI.sort( (a,b) => a.abv-b.abv))
+  const sortBeers = (beerAPI) => beerBase === selection[0] ? 
+                    setBeerAPI(beerAPI.sort( (a,b) => a.name.localeCompare(b.name))) :
+                    setBeerAPI(beerAPI.sort( (a,b) => a.abv-b.abv))
  
-
-  const handleSelection = (e) => {
-    const { value } = e.target
-    setBeerBase(value)
-  }
-
   return (
     <div style={{position: "relative"}}>
       <h1 className="title">PUNK BEERS</h1>
@@ -38,7 +34,7 @@ const BeerList = () => {
         <span>Sort by: </span>
           <select
             defaultValue={beerBase}
-            onChange={handleSelection}
+            onChange={e => setBeerBase(e.target.value)}
             style={{ border:"1px solid black", padding: "2.5px"}}
           >
             {selection.map(select =>
